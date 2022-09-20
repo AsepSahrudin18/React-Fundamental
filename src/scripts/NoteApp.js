@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+
 import AddNote from "../pages/AddNote";
-import NoteArchive from "../pages/Archives";
 import NoteFooter from "./NoteApp/NoteFooter";
 import NoteHeader from "./NoteApp/NoteHeader";
-import NoteActive from "./NoteApp/NoteMain";
-import NoteMain from "./NoteApp/NoteMain";
+import NoteActive from "../pages/NoteActive";
+import NoteArchive from "../pages/NoteArchive";
 
-import { getInitialData } from "./utils/data";
+import { getInitialData, showFormattedDate } from "./utils/data";
 
 class NoteApp extends React.Component {
   constructor(props) {
@@ -82,6 +82,7 @@ class NoteApp extends React.Component {
                   query={this.state.query}
                   onDelete={this.onDeleteEventHandler}
                   onArchive={this.onArchiveEventHandler}
+                  showFormattedDate={showFormattedDate}
                 />
               }
             />
@@ -94,6 +95,7 @@ class NoteApp extends React.Component {
                   query={this.state.query}
                   onDelete={this.onDeleteEventHandler}
                   onRestore={this.onRestoreEventHandler}
+                  showFormattedDate={showFormattedDate}
                 />
               }
             />

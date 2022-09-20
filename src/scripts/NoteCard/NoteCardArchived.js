@@ -1,11 +1,16 @@
 import React from "react";
 
-function NoteCardArchived({ note, onDelete, onRestore }) {
+function NoteCardArchived({ note, onDelete, onRestore, showFormattedDate }) {
+  const formattedDate = showFormattedDate(note.createdAt);
+
   return (
     <div className="note-card archived">
       <div className="card-content">
         <h3>{note.title}</h3>
-        <p>{note.body} </p>
+        <p>
+          {formattedDate} <br /> <br />
+          {note.body}
+        </p>
       </div>
 
       <div className="button-container archived">

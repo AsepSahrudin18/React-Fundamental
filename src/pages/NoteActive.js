@@ -1,7 +1,7 @@
 import React from "react";
-import NoteCtnActive from "../NoteMain/NoteCtnActive";
+import NoteCtnActive from "../scripts/NoteMain/NoteCtnActive";
 
-function NoteActive({ notes, query, onDelete, onArchive }) {
+function NoteActive({ notes, query, onDelete, onArchive, showFormattedDate }) {
   return (
     <main>
       <div className="note-container">
@@ -10,6 +10,7 @@ function NoteActive({ notes, query, onDelete, onArchive }) {
           query={query}
           onDelete={onDelete}
           onArchive={onArchive}
+          showFormattedDate={showFormattedDate}
         />
       </div>
     </main>

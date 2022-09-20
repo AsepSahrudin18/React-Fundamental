@@ -7,7 +7,7 @@ function filterActive(notes, query) {
   });
 }
 
-function NoteCtnActive({ notes, query, onDelete, onArchive }) {
+function NoteCtnActive({ notes, query, onDelete, onArchive, showFormattedDate }) {
   const filteredNotes = filterActive(notes, query);
 
   return (
@@ -22,6 +22,7 @@ function NoteCtnActive({ notes, query, onDelete, onArchive }) {
                 note={note}
                 onDelete={onDelete}
                 onArchive={onArchive}
+                showFormattedDate={showFormattedDate}
               />
             );
           })

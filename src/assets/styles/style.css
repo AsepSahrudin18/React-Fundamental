@@ -177,6 +177,10 @@ header .header-middle ul li:hover {
   border-color: var(--text);
 }
 
+header .header-middle ul li:active {
+  transform: scale(90%);
+}
+
 header .header-right {
   display: flex;
   flex-direction: row;

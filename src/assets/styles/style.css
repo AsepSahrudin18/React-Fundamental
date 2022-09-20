@@ -22,6 +22,10 @@ body {
   overflow-x: hidden;
 }
 
+#root {
+  width: 100%;
+}
+
 h2 {
   color: var(--text);
 }
@@ -117,11 +121,12 @@ button:active {
   max-width: 1600px;
   width: 100%;
   min-width: 400px;
+  height: inherit;
 }
 
 header {
   position: sticky;
-  top: 0% ;
+  top: 0%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -139,6 +144,43 @@ header .logo {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+header .header-middle ul {
+  display: flex;
+  list-style: none;
+  font-size: 1.5rem;
+  gap: 20px;
+}
+
+header .header-middle ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--text);
+  color: var(--primary);
+  padding: 10px;
+  border-radius: 100%;
+  border: 3px solid var(--primary);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+header .header-middle ul li:hover {
+  transform: scale(110%);
+  color: var(--text);
+  background-color: var(--primary);
+  border-color: var(--text);
+}
+
+header .header-right {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
 }
 
 header .search-bar form {
@@ -197,9 +239,11 @@ main .note-form {
   justify-content: center;
   align-items: center;
   width: 98.8vw;
-  padding: 5%;
+  min-height: calc(100vh - 130px);
+  padding: 5% 5%;
   background-color: var(--primary);
 }
+
 .note-form h1 {
   margin-bottom: 20px;
   text-align: center;
@@ -241,8 +285,9 @@ main .note-container {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: calc(100vh - 130px);
   gap: 40px;
-  padding: 0 5% 10%;
+  padding: 3% 5% 10%;
   background-color: var(--primary);
 }
 
@@ -263,6 +308,10 @@ main .note-container {
 }
 
 .note-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
   height: 100%;
   border-radius: 16px;
   padding: 15px 30px;

@@ -1,6 +1,10 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
+import AddNote from "../pages/AddNote";
+import NoteArchive from "../pages/Archives";
 import NoteFooter from "./NoteApp/NoteFooter";
 import NoteHeader from "./NoteApp/NoteHeader";
+import NoteActive from "./NoteApp/NoteMain";
 import NoteMain from "./NoteApp/NoteMain";
 
 import { getInitialData } from "./utils/data";
@@ -68,14 +72,38 @@ class NoteApp extends React.Component {
             query={this.state.query}
             onQuery={this.onQuerySubmitEventHandler}
           />
-          <NoteMain
-            notes={this.state.notes}
-            query={this.state.query}
-            onAddNote={this.onAddNoteEventHandler}
-            onDelete={this.onDeleteEventHandler}
-            onArchive={this.onArchiveEventHandler}
-            onRestore={this.onRestoreEventHandler}
-          />
+
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <NoteActive
+                  notes={this.state.notes}
+                  query={this.state.query}
+                  onDelete={this.onDeleteEventHandler}
+                  onArchive={this.onArchiveEventHandler}
+                />
+              }
+            />
+
+            <Route
+              path="/archives"
+              element={
+                <NoteArchive
+                  notes={this.state.notes}
+                  query={this.state.query}
+                  onDelete={this.onDeleteEventHandler}
+                  onRestore={this.onRestoreEventHandler}
+                />
+              }
+            />
+
+            <Route
+              path="/add"
+              element={<AddNote onAddNote={this.onAddNoteEventHandler} />}
+            />
+          </Routes>
+
           <NoteFooter />
         </div>
       </div>

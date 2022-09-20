@@ -1,15 +1,9 @@
 import React from "react";
-import NoteForm from "../NoteMain/NoteForm";
 import NoteCtnActive from "../NoteMain/NoteCtnActive";
-import NoteCtnArchived from "../NoteMain/NoteCtnArchived";
 
-function NoteMain({ notes, query, onAddNote, onDelete, onArchive, onRestore }) {
+function NoteActive({ notes, query, onDelete, onArchive }) {
   return (
     <main>
-      <div className="note-form">
-        <NoteForm onAddNote={onAddNote} />
-      </div>
-
       <div className="note-container">
         <NoteCtnActive
           notes={notes}
@@ -17,15 +11,9 @@ function NoteMain({ notes, query, onAddNote, onDelete, onArchive, onRestore }) {
           onDelete={onDelete}
           onArchive={onArchive}
         />
-        <NoteCtnArchived
-          notes={notes}
-          query={query}
-          onDelete={onDelete}
-          onRestore={onRestore}
-        />
       </div>
     </main>
   );
 }
 
-export default NoteMain;
+export default NoteActive;

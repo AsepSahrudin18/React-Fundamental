@@ -8,6 +8,7 @@ import NoteActive from "../pages/NoteActive";
 import NoteArchive from "../pages/NoteArchive";
 
 import { getInitialData, showFormattedDate } from "./utils/data";
+import DetailNote from "../pages/DetailNote";
 
 class NoteApp extends React.Component {
   constructor(props) {
@@ -103,6 +104,16 @@ class NoteApp extends React.Component {
             <Route
               path="/add"
               element={<AddNote onAddNote={this.onAddNoteEventHandler} />}
+            />
+
+            <Route
+              path="/detail/:id"
+              element={
+                <DetailNote
+                  notes={this.state.notes}
+                  showFormattedDate={showFormattedDate}
+                />
+              }
             />
           </Routes>
 

@@ -322,6 +322,41 @@ main .note-container {
   background-color: var(--text);
 }
 
+.card-content .card-content__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-content__header .detail-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.detail-button svg {
+  width: 3rem;
+  height: 3rem;
+  padding: 8px;
+  background-color: var(--primary);
+  border: 2px solid var(--text);
+  border-radius: 100%;
+  transition: 0.3s ease;
+}
+
+.detail-button:hover svg {
+  transform: scale(95%);
+}
+
+.detail-button:active svg {
+  transform: scale(90%);
+}
+
+.detail-button svg polyline {
+  stroke: var(--text);
+  transition: 0.3s ease;
+}
+
 .card-content p {
   margin-top: 20px;
 }
@@ -339,6 +374,30 @@ main .note-container {
 
 .empty {
   color: var(--text);
+}
+
+main .detail-container {
+  padding: 5%;
+  width: 70%;
+  min-height: calc(100vh - 130px);
+}
+
+.detail-container h1,
+.detail-container p {
+  color: var(--text);
+}
+
+.detail-container h1 {
+  margin-bottom: 30px;
+}
+
+.detail-container p {
+  font-size: 20px;
+}
+
+.detail-container p:last-child {
+  margin-top: 15px;
+  text-align: justify;
 }
 
 footer {

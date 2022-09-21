@@ -18,7 +18,7 @@ const getInitialData = () => [
     title: "Modularization",
     body: "Dalam konteks pemrograman JavaScript, modularization merupakan teknik dalam memecah atau menggunakan kode dalam berkas JavaScript secara terpisah berdasarkan tanggung jawabnya masing-masing.",
     createdAt: "2022-04-14T04:27:34.572Z",
-    archived: false,
+    archived: true,
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ const getInitialData = () => [
     title: "Module Bundler",
     body: "Dalam konteks pemrograman JavaScript, module bundler merupakan tools yang digunakan untuk menggabungkan seluruh modul JavaScript yang digunakan oleh aplikasi menjadi satu berkas.",
     createdAt: "2022-04-14T04:27:34.572Z",
-    archived: false,
+    archived: true,
   },
 ];
 

@@ -9,6 +9,7 @@ import NoteArchive from "../pages/NoteArchive";
 
 import { getInitialData, showFormattedDate } from "./utils/data";
 import DetailNote from "../pages/DetailNote";
+import NotFound from "../pages/NotFound";
 
 class NoteApp extends React.Component {
   constructor(props) {
@@ -76,6 +77,7 @@ class NoteApp extends React.Component {
 
           <Routes>
             <Route
+              exact
               path="/"
               element={
                 <NoteActive
@@ -89,6 +91,7 @@ class NoteApp extends React.Component {
             />
 
             <Route
+              exact
               path="/archives"
               element={
                 <NoteArchive
@@ -102,11 +105,13 @@ class NoteApp extends React.Component {
             />
 
             <Route
+              exact
               path="/add"
               element={<AddNote onAddNote={this.onAddNoteEventHandler} />}
             />
 
             <Route
+              exact
               path="/detail/:id"
               element={
                 <DetailNote
@@ -115,6 +120,8 @@ class NoteApp extends React.Component {
                 />
               }
             />
+
+            <Route exact path="*" element={<NotFound />} />
           </Routes>
 
           <NoteFooter />

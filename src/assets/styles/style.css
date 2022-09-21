@@ -400,6 +400,23 @@ main .detail-container {
   text-align: justify;
 }
 
+main .not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  width: 70%;
+  min-height: calc(100vh - 130px);
+  color: var(--text);
+  text-align: center;
+  gap: 40px;
+}
+
+.not-found img {
+  height: 30vh;
+}
+
 footer {
   position: sticky;
   display: flex;

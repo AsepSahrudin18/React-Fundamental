@@ -1,16 +1,23 @@
 import React from "react";
+import NotFound from "./NotFound";
 import { useParams } from "react-router-dom";
 
 function findNote(notes, id) {
-  return notes.filter((note) => note.id === id);
+  return notes.filter((note) => note.id == id);
 }
 
 function DetailNote({ notes, showFormattedDate }) {
   const params = useParams();
   const { id } = params;
-  const parsedId = JSON.parse(id);
 
-  const [note] = findNote(notes, parsedId);
+  const [note] = findNote(notes, id);
+
+  if (note === undefined) {
+    return (
+      <NotFound />
+    )
+  }
+
   const formattedDate = showFormattedDate(note.createdAt);
 
   return (

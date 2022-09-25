@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import NoteForm from "../scripts/NoteMain/NoteForm";
 
 function AddNote({ onAddNote }) {
@@ -10,5 +11,9 @@ function AddNote({ onAddNote }) {
     </main>
   );
 }
+
+AddNote.propTypes = {
+  onAddNote: PropTypes.func.isRequired,
+};
 
 export default AddNote;

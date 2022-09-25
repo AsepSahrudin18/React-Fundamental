@@ -2,10 +2,12 @@ import React from "react";
 import NoteLogo from "../NoteHeader/NoteLogo";
 import NoteSearchBar from "../NoteHeader/NoteSearchBar";
 import NoteSignInBtn from "../NoteHeader/NoteSignInBtn";
+
 import { AiFillHome } from "react-icons/ai";
 import { FaArchive } from "react-icons/fa";
 import { IoIosAddCircle } from "react-icons/io";
 
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 function NoteHeader({ query, onQuery }) {
@@ -45,6 +47,11 @@ function NoteHeader({ query, onQuery }) {
       </div>
     </header>
   );
+}
+
+NoteHeader.propTypes = {
+  query: PropTypes.string.isRequired,
+  onQuery: PropTypes.func.isRequired,
 }
 
 export default NoteHeader;

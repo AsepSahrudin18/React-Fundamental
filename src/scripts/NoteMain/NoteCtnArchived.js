@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import NoteCardArchived from "../NoteCard/NoteCardArchived";
 
 function filterArchived(notes, query) {
@@ -7,7 +8,13 @@ function filterArchived(notes, query) {
   });
 }
 
-function NoteCtnArchived({ notes, query, onDelete, onRestore, showFormattedDate }) {
+function NoteCtnArchived({
+  notes,
+  query,
+  onDelete,
+  onRestore,
+  showFormattedDate,
+}) {
   const filteredNotes = filterArchived(notes, query);
 
   return (
@@ -35,5 +42,13 @@ function NoteCtnArchived({ notes, query, onDelete, onRestore, showFormattedDate 
     </div>
   );
 }
+
+NoteCtnArchived.propTpes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  query: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onRestore: PropTypes.func.isRequired,
+  showFormattedDate: PropTypes.func.isRequired,
+};
 
 export default NoteCtnArchived;

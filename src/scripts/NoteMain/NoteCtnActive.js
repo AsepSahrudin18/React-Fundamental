@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import NoteCardActive from "../NoteCard/NoteCardActive";
 
 function filterActive(notes, query) {
@@ -7,7 +8,13 @@ function filterActive(notes, query) {
   });
 }
 
-function NoteCtnActive({ notes, query, onDelete, onArchive, showFormattedDate }) {
+function NoteCtnActive({
+  notes,
+  query,
+  onDelete,
+  onArchive,
+  showFormattedDate,
+}) {
   const filteredNotes = filterActive(notes, query);
 
   return (
@@ -35,5 +42,13 @@ function NoteCtnActive({ notes, query, onDelete, onArchive, showFormattedDate })
     </div>
   );
 }
+
+NoteCtnActive.propTpes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  query: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onArchive: PropTypes.func.isRequired,
+  showFormattedDate: PropTypes.func.isRequired,
+};
 
 export default NoteCtnActive;

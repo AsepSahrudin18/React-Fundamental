@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { GrFormNext } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 
@@ -11,9 +12,12 @@ function NoteCardActive({ note, onDelete, onArchive, showFormattedDate }) {
       <div className="card-content">
         <div className="card-content__header">
           <h3>{note.title}</h3>
-          <div className="detail-button" onClick={() => {
-            navigate(`/detail/${note.id}`);
-          }}>
+          <div
+            className="detail-button"
+            onClick={() => {
+              navigate(`/detail/${note.id}`);
+            }}
+          >
             <GrFormNext />
           </div>
         </div>
@@ -45,5 +49,12 @@ function NoteCardActive({ note, onDelete, onArchive, showFormattedDate }) {
     </div>
   );
 }
+
+NoteCardActive.propTypes = {
+  note: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onArchive: PropTypes.func.isRequired,
+  showFormattedDate: PropTypes.func.isRequired,
+};
 
 export default NoteCardActive;

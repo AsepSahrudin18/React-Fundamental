@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class NoteSearchBar extends React.Component {
   constructor(props) {
@@ -39,5 +40,10 @@ class NoteSearchBar extends React.Component {
     );
   }
 }
+
+NoteSearchBar.propTypes = {
+  query: PropTypes.string.isRequired,
+  onQuery: PropTypes.func.isRequired,
+};
 
 export default NoteSearchBar;

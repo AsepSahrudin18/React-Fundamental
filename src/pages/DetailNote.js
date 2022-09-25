@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import NotFound from "./NotFound";
 import { useParams } from "react-router-dom";
 
@@ -13,9 +14,7 @@ function DetailNote({ notes, showFormattedDate }) {
   const [note] = findNote(notes, Number(id));
 
   if (note === undefined) {
-    return (
-      <NotFound />
-    )
+    return <NotFound />;
   }
 
   const formattedDate = showFormattedDate(note.createdAt);
@@ -24,11 +23,18 @@ function DetailNote({ notes, showFormattedDate }) {
     <main>
       <div className="detail-container">
         <h1>{note.title}</h1>
-        <p>{formattedDate} - {note.archived ? 'Archived' : 'Active'} </p>
+        <p>
+          {formattedDate} - {note.archived ? "Archived" : "Active"}{" "}
+        </p>
         <p>{note.body}</p>
       </div>
     </main>
   );
+}
+
+DetailNote.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  showFormattedDate: PropTypes.func.isRequired,
 }
 
 export default DetailNote;

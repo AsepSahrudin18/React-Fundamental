@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { GrFormNext } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 
@@ -47,5 +48,12 @@ function NoteCardArchived({ note, onDelete, onRestore, showFormattedDate }) {
     </div>
   );
 }
+
+NoteCardArchived.propTypes = {
+  note: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onRestore: PropTypes.func.isRequired,
+  showFormattedDate: PropTypes.func.isRequired,
+};
 
 export default NoteCardArchived;

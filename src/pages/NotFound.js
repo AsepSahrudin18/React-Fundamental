@@ -6,7 +6,7 @@ function NotFound() {
     <main>
       <div className="not-found">
         <img src={NotFoundImage} alt='Not Found' />
-        <h1>Looks like you got lost...</h1>
+        <h1>Buddy, it looks like you got lost...</h1>
       </div>
     </main>
   );

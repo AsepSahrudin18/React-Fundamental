@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class NoteForm extends React.Component {
   constructor(props) {
@@ -75,5 +76,10 @@ class NoteForm extends React.Component {
     );
   }
 }
+
+NoteForm.propTypes = {
+  onAddNote: PropTypes.func.isRequired,
+};
+
 
 export default NoteForm;

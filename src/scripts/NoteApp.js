@@ -114,10 +114,7 @@ class NoteApp extends React.Component {
               exact
               path="/detail/:id"
               element={
-                <DetailNote
-                  notes={this.state.notes}
-                  showFormattedDate={showFormattedDate}
-                />
+                <DetailNote notes={this.state.notes} showFormattedDate={showFormattedDate} />
               }
             />
 

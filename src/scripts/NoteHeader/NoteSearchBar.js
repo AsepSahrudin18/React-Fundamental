@@ -1,5 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useSearchParams } from "react-router-dom";
+
+function NoteSearchBarWrapper({ query, onQuery }) {
+  const [searchParams, setSearchparams] = useSearchParams();
+
+  return (
+    <NoteSearchBar
+      query={query}
+      onQuery={onQuery}
+      setSearchparams={setSearchparams}
+    />
+  );
+}
 
 class NoteSearchBar extends React.Component {
   constructor(props) {
@@ -18,7 +31,10 @@ class NoteSearchBar extends React.Component {
       <div className="search-bar">
         <form
           id="search-notes"
-          onSubmit={(event) => this.props.onQuery(event, this.state.query)}
+          onSubmit={(event) => {
+            this.props.onQuery(event, this.state.query);
+            this.props.setSearchparams({ title: this.state.query });
+          }}
         >
           <div className="search-column">
             <input
@@ -46,4 +62,4 @@ NoteSearchBar.propTypes = {
   onQuery: PropTypes.func.isRequired,
 };
 
-export default NoteSearchBar;
+export default NoteSearchBarWrapper;

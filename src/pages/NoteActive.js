@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import NoteCtnActive from "../scripts/NoteMain/NoteCtnActive";
+import { useSearchParams } from "react-router-dom";
 
 function NoteActive({ notes, query, onDelete, onArchive, showFormattedDate }) {
+  const [searchParams, setSearchparams] = useSearchParams();
+
+  useEffect(() => {
+    if (query) {
+      setSearchparams({ title: query });
+    }
+  }, []);
+
   return (
     <main>
       <div className="note-container">
